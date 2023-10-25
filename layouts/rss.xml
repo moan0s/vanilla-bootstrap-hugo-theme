@@ -1,0 +1,53 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+{{- printf "<?xml-stylesheet href=\"/rss.xsl\" type=\"text/xsl\"?>" | safeHTML }}
+
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:media="http://search.yahoo.com/mrss/">
+    <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+    {{ printf "<link href=%q />" .Permalink | safeHTML }}
+    <generator>Hugo -- gohugo.io</generator>
+    <language>{{ site.LanguageCode }}</language>
+    {{ with .Site.Author.email }}
+      <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>
+    {{end}}
+    {{ with .Site.Author.email }}
+      <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>
+    {{end}}
+    {{ with .Site.Copyright }}
+      <copyright>{{.}}</copyright>
+    {{end}}
+    {{ with .Permalink }}
+      <id>{{.}}</id>
+    {{end}}
+    {{ if not .Date.IsZero }}
+      <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</updated>
+    {{ end }}
+    {{- with .OutputFormats.Get "RSS" -}}
+      {{ printf "<link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end -}}
+    {{ range $pages }}
+    <entry>
+      <title>{{ .Title }}</title>
+      {{ printf "<link href=%q type=%q />" .Permalink .MediaType | safeHTML }}
+      <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}</updated>
+      <id>{{ .Permalink }}</id>
+      {{ with $.Site.Params.author }}
+      <author><name>{{.}}</name></author>
+      {{end}}
+      {{ printf "<content type=\"html\">" | safeHTML }} {{ .Content | html }}</content>
+      
+    </entry>
+    {{ end }}
+</feed>
