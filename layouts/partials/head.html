@@ -12,4 +12,9 @@
   {{ end }}
   <title>{{ $title }}</title>
   {{ partial "style.html" . }}
+
+  {{ with .Site.Params.oxitraffic_url }}
+  <script src="{{ . }}" defer></script>
+  {{ end }}
+
 </head>
