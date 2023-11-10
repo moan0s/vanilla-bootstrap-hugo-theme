@@ -1,12 +1,6 @@
-⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-
-**WARNING:** This repo is no longer maintained. It's archived and read-only.
-
-⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+**Important info:** The original theme was developed by [zwbetz](https://github.com/zwbetz-gh) and [is currently unmaintained](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme). While this is a public fork and you are invited to use it and open PRs/issues I don't want to promise tp properly maintain the theme. Functionality of the original theme might me missing (e.g. Google Analytics).
 
 # Vanilla Bootstrap
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c8f8a93c-33b9-48bc-b4d8-500c79b1b0ae/deploy-status)](https://app.netlify.com/sites/vanilla-bootstrap-hugo-theme/deploys)
 
 A vanilla [Bootstrap](https://getbootstrap.com/) theme for [Hugo](https://gohugo.io/).
 
@@ -26,10 +20,6 @@ A vanilla [Bootstrap](https://getbootstrap.com/) theme for [Hugo](https://gohugo
 * [Getting help](#getting-help)
 * [Credits](#credits)
 
-## Demo
-
-https://vanilla-bootstrap-hugo-theme.netlify.com/
-
 ## Minimum Hugo version
 
 Hugo version `0.81.0` or higher is required. View the [Hugo releases](https://github.com/gohugoio/hugo/releases) and download the binary for your OS.
@@ -39,7 +29,7 @@ Hugo version `0.81.0` or higher is required. View the [Hugo releases](https://gi
 From the root of your site:
 
 ```
-git submodule add https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme.git themes/vanilla-bootstrap-hugo-theme
+git submodule add https://github.com/moanos/vanilla-bootstrap-hugo-theme.git themes/vanilla-bootstrap-hugo-theme
 ```
 
 ## Updating
@@ -60,7 +50,7 @@ hugo server --themesDir ../..
 
 ## Configuration
 
-Copy `config.yaml` from the [`exampleSite`](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme/tree/master/exampleSite), then edit as desired.
+Copy `config.yaml` from the [`exampleSite`](https://github.com/moanos/vanilla-bootstrap-hugo-theme/tree/master/exampleSite), then edit as desired.
 
 ## Homepage content
 
